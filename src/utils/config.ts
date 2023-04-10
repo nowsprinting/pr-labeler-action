@@ -16,6 +16,7 @@ export default async function getConfig(
   defaultConfig: Config
 ): Promise<Config> {
   try {
+    console.log(`Config file owner: $\{owner}, repo: $\{repo}, path: $\{path}, ref: $\{ref}`);
     const response = await github.repos.getContent({
       owner,
       repo,
@@ -30,7 +31,7 @@ export default async function getConfig(
     throw new Error(`${path} does not point to a config file`);
   } catch (error: any) {
     if (error.status === 404) {
-      // TODO: add log
+      console.log(`Config file not found, using default config.`);
       return defaultConfig;
     }
 
