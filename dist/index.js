@@ -13811,10 +13811,9 @@ function action(context = github.context) {
             if (!context.payload.pull_request) {
                 throw new Error("Payload doesn't contain `pull_request`. Make sure this Action is being triggered by a pull_request event (https://help.github.com/en/articles/events-that-trigger-workflows#pull-request-event-pull_request).");
             }
+            console.log(`head.fork=${context.payload.pull_request.head.fork}`);
             console.log(`head.repo.full_name=${context.payload.pull_request.head.repo.full_name}`);
-            console.log(`head.repo.name=${context.payload.pull_request.head.repo.name}`);
             console.log(`base.repo.full_name=${context.payload.pull_request.base.repo.full_name}`);
-            console.log(`base.repo.name=${context.payload.pull_request.base.repo.name}`);
             const ref = context.payload.pull_request.head.ref;
             const config = yield (0, config_1.default)(octokit, configPath, context.repo, ref, defaultConfig);
             const labelsToAdd = getLabelsToAdd(config, ref);

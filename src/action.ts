@@ -22,10 +22,9 @@ async function action(context: Context = github.context) {
       );
     }
 
+    console.log(`head.fork=${context.payload.pull_request.head.fork}`);
     console.log(`head.repo.full_name=${context.payload.pull_request.head.repo.full_name}`);
-    console.log(`head.repo.name=${context.payload.pull_request.head.repo.name}`);
     console.log(`base.repo.full_name=${context.payload.pull_request.base.repo.full_name}`);
-    console.log(`base.repo.name=${context.payload.pull_request.base.repo.name}`);
 
     const ref: string = context.payload.pull_request.head.ref;
     const config = await getConfig(octokit, configPath, context.repo, ref, defaultConfig);
