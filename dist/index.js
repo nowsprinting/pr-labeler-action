@@ -13883,8 +13883,7 @@ function getConfig(github, path, { owner, repo }, ref, defaultConfig) {
             const response = yield github.repos.getContent({
                 owner,
                 repo,
-                path,
-                ref,
+                path
             });
             if ('content' in response.data) {
                 return parseConfig(response.data.content);

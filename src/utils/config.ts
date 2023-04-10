@@ -20,8 +20,7 @@ export default async function getConfig(
     const response = await github.repos.getContent({
       owner,
       repo,
-      path,
-      ref,
+      path
     });
 
     if ('content' in response.data) {
