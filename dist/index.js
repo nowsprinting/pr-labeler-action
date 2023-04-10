@@ -13879,7 +13879,7 @@ const js_yaml_1 = __importDefault(__nccwpck_require__(1917));
 function getConfig(github, path, { owner, repo }, ref, defaultConfig) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            console.log(`Config file owner: $\{owner}, repo: $\{repo}, path: $\{path}, ref: $\{ref}`);
+            console.log(`Config file owner ${owner}, repo ${repo}, path ${path}, ref ${ref}`);
             const response = yield github.repos.getContent({
                 owner,
                 repo,

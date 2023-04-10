@@ -16,7 +16,7 @@ export default async function getConfig(
   defaultConfig: Config
 ): Promise<Config> {
   try {
-    console.log(`Config file owner: $\{owner}, repo: $\{repo}, path: $\{path}, ref: $\{ref}`);
+    console.log(`Config file owner ${owner}, repo ${repo}, path ${path}, ref ${ref}`);
     const response = await github.repos.getContent({
       owner,
       repo,
